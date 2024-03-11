@@ -34,9 +34,6 @@ public class KitchenGUI {
                     stage.close();
                 }
                 // consume event
-                else if (result.get() == ButtonType.NO){
-                    event.consume();
-                }
                 else {
                     event.consume();
                 }

@@ -26,11 +26,18 @@ public class MenuRepository {
                 MenuDataModel menuItem=getMenuItem(line);
                 listMenu.add(menuItem);
             }
-            br.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if(br!=null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 
