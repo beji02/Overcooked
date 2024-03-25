@@ -45,10 +45,18 @@ public class PaymentAlert implements PaymentOperation {
         Optional<ButtonType> result = paymentAlert.showAndWait();
         if (result.get() == cardPayment) {
             cardPayment();
-            service.addPayment(tableNumber, PaymentType.CARD,totalAmount);
+            try {
+                service.addPayment(tableNumber, PaymentType.CARD,totalAmount);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         } else if (result.get() == cashPayment) {
             cashPayment();
-            service.addPayment(tableNumber, PaymentType.CASH,totalAmount);
+            try {
+                service.addPayment(tableNumber, PaymentType.CASH,totalAmount);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         } else if (result.get() == cancel) {
              cancelPayment();
         } else {

@@ -22,8 +22,12 @@ public class PizzaService {
 
     public List<Payment> getPayments(){return payRepo.getAll(); }
 
-    public void addPayment(int table, PaymentType type, double amount){
-        Payment payment= new Payment(table, type, amount);
+    public void addPayment(int table, PaymentType type, double amount) throws Exception {
+        Payment payment = new Payment(table, type, amount);
+        if (0 >= table || table > 8)
+        {
+            throw new Exception("Error - table number in invalid");
+        }
         payRepo.add(payment);
     }
 
