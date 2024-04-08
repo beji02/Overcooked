@@ -4,15 +4,14 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import pizzashop.model.PaymentType;
-import pizzashop.repository.MenuRepository;
-import pizzashop.repository.PaymentRepository;
+import pizzashop.repository.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PizzaServiceTest {
     private PizzaService pizzaService;
     private MenuRepository menuRepository = new MenuRepository();
-    private PaymentRepository paymentRepository = new PaymentRepository();
+    private IPaymentRepository paymentRepository = new PaymentRepository();
     @BeforeEach
     void setUp() {
         pizzaService = new PizzaService(menuRepository, paymentRepository);
@@ -114,5 +113,17 @@ class PizzaServiceTest {
 
         assert(paymentRepository.getAll().size() == totalPayments + 1);
         assertEquals(8, paymentRepository.getAll().get(totalPayments).getTableNumber());
+    }
+    @Test
+    void getTotalAmount_F02_TC01() {
+        paymentRepository = new Mock1PaymentRepository();
+        pizzaService = new PizzaService(menuRepository, paymentRepository);
+        assert(pizzaService.getTotalAmount(PaymentType.CASH) == 35.5);
+    }
+    @Test
+    void getTotalAmount_F02_TC03() {
+        paymentRepository = new MockNullPaymentRepository();
+        pizzaService = new PizzaService(menuRepository, paymentRepository);
+        assert(pizzaService.getTotalAmount(PaymentType.CASH) == 0.0);
     }
 }
