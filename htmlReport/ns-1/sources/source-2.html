@@ -60,10 +60,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    94.1%
+    90%
   </span>
   <span class="absValue">
-    (16/17)
+    (18/20)
   </span>
 </td>
 </tr>
@@ -112,7 +112,12 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    public double getTotalAmount(PaymentType type){
 <b class="fc">&nbsp;        double total=0.0f;</b>
 <b class="fc">&nbsp;        List&lt;Payment&gt; paymentList=getPayments();</b>
-<b class="fc">&nbsp;        if ((paymentList==null) ||(paymentList.size()==0)) return total;</b>
+<b class="fc">&nbsp;        if ((paymentList==null)){</b>
+<b class="fc">&nbsp;            return total;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        if (paymentList.size() == 0){</b>
+<b class="nc">&nbsp;            return total;</b>
+&nbsp;        }
 <b class="fc">&nbsp;        for (Payment p:paymentList){</b>
 <b class="fc">&nbsp;            if (p.getType().equals(type))</b>
 <b class="fc">&nbsp;                total+=p.getAmount();</b>
@@ -144,7 +149,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-04-08 14:21</div>
+    <div style="float:right;">generated on 2024-04-09 12:17</div>
 </div>
 </body>
 </html>
