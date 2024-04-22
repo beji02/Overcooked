@@ -123,6 +123,8 @@
             --add-opens=pizzashop/pizzashop.service=ALL-UNNAMED
             --add-opens=pizzashop/pizzashop.repository=ALL-UNNAMED
             --add-opens=pizzashop/pizzashop.repository=ALL-UNNAMED
+            --add-opens=pizzashop/pizzashop.model=ALL-UNNAMED
+            --add-opens=pizzashop/pizzashop.model=ALL-UNNAMED
           </argLine>
         </configuration>
       </plugin>
