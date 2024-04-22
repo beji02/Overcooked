@@ -1,4 +1,4 @@
-package repo;
+package pizzashop.repository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,11 +7,8 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
-import pizzashop.repository.MenuRepository;
-import pizzashop.repository.PaymentRepository;
 import pizzashop.service.PizzaService;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;

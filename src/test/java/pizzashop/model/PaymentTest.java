@@ -1,4 +1,4 @@
-package model;
+package pizzashop.model;
 
 import org.junit.jupiter.api.Test;
 import pizzashop.model.Payment;
