@@ -10,14 +10,14 @@ import java.util.StringTokenizer;
 
 public class PaymentRepository implements IPaymentRepository {
     private static String filename = "data/payments.txt";
-    private List<Payment> paymentList;
+    public List<Payment> paymentList;
 
     public PaymentRepository(){
         this.paymentList = new ArrayList<>();
         readPayments();
     }
 
-    private void readPayments(){
+    public void readPayments(){
         //ClassLoader classLoader = PaymentRepository.class.getClassLoader();
         File file = new File(filename);
         BufferedReader br = null;
@@ -36,7 +36,7 @@ public class PaymentRepository implements IPaymentRepository {
         }
     }
 
-    private Payment getPayment(String line){
+    public Payment getPayment(String line){
         Payment item=null;
         if (line==null|| line.equals("")) return null;
         StringTokenizer st=new StringTokenizer(line, ",");
