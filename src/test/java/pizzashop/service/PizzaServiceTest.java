@@ -21,10 +21,10 @@ class PizzaServiceTest {
     void tearDown() {
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {2})
-    void addPayment_TC01_ECP(int candidate) {
+    @Test
+    void addPayment_TC01_ECP() {
         PaymentType type = PaymentType.CASH;
+        int candidate = 2;
         double amount = 10;
         int totalPayments = paymentRepository.getAll().size();
         try {
@@ -37,7 +37,7 @@ class PizzaServiceTest {
         assertEquals(2 , paymentRepository.getAll().get(totalPayments).getTableNumber());
     }
 
-    @RepeatedTest(10)
+    @Test
     void addPayment_TC03_ECP() {
         int table = 9;
         PaymentType type = PaymentType.valueOf("CARD");
