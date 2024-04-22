@@ -17,7 +17,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-ita public class RepoIntegrationTest {
+public class RepoIntegrationTest {
 
   @Spy
   PaymentRepository repo;
